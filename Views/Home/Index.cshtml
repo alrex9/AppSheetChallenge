@@ -1,0 +1,22 @@
+﻿@using AppSheet.Models;
+@model List<Person>;
+
+<h1>AppSheet Programming Challenge</h1>
+
+<table class="table" style="width:100%">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Number</th>
+    </tr>
+    @foreach (var person in Model.Take(5))
+    {
+        <tr>
+            <td>@person.Id</td>
+            <td>@person.Name</td>
+            <td>@person.Age</td>
+            <td>@person.Number</td>
+        </tr>
+    }
+</table>
