@@ -11,20 +11,6 @@ namespace AppSheet.Models
     /// </summary>
     public class ListResult
     {
-        /// <summary>
-        /// Create the list of people and find the next token based on the given set of people.
-        /// </summary>
-        public ListResult(IEnumerable<Person> people)
-        {           
-            this.Result = people.Select(x => x.Id);
-            if (people.Count() == 10)
-            {
-                var lastItem = people.Last();
-                var token = lastItem.Hash.ToString();
-                this.Token = token;
-            }
-        }
-
         [JsonProperty("result")]
         public IEnumerable<int> Result { get; private set; }
 

@@ -11,8 +11,6 @@ namespace AppSheet.Models
     [Serializable]
     public class Person : IComparable
     {
-        public static string PeopleEndpoint = "http://localhost:64376/api/Person/";
-
         [JsonProperty("id")]
         public int Id { get; set; }
 
@@ -32,20 +30,12 @@ namespace AppSheet.Models
         [JsonProperty("bio")]
         public string Bio { get; set; }
 
-        [JsonIgnore]
-        public int Hash => this.GetHashCode();
-
-        public override int GetHashCode()
-        {
-            return this.Id.GetHashCode() * 17;
-        }
-
         public int CompareTo(object obj)
         {
             var otherPerson = obj as Person;
             if (obj != null)
             {
-                return otherPerson.Age.CompareTo(this.Age);
+                return this.Age.CompareTo(otherPerson.Age);
             }
             else
             {
